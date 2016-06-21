@@ -16,8 +16,6 @@ defmodule Edmin.Router do
 
   scope "/", Edmin do
     pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
   end
 
   # setup the ExAdmin routes on /admin

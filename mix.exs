@@ -19,7 +19,7 @@ defmodule Edmin.Mixfile do
   def application do
     [mod: {Edmin, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :mariaex]]
+                    :phoenix_ecto, :postgrex, :ex_admin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -31,8 +31,9 @@ defmodule Edmin.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [{:ex_admin, "~> 0.7"},
-     {:phoenix, "~> 1.1.6"},
-     {:mariaex, "~> 0.7.7"},
+     {:postgrex, "~> 0.11.2"},
+     {:arc_ecto, "~> 0.3"},
+     {:phoenix, "~> 1.1.4"},
      {:phoenix_ecto, "~> 2.0"},
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
