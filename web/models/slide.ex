@@ -1,16 +1,18 @@
 defmodule Edmin.Slide do
   use Edmin.Web, :model
+  use Arc.Ecto.Model
 
-  schema "slides" do
+  schema "slide" do
+    field :position, :integer
     field :name, :string
     field :description, :string
     field :duration, :integer
-    field :asset_file_name, Edmin.Asset.Type
+    field :asset_file_name, :string
 
     timestamps
   end
 
-  @required_fields ~w(name description duration)
+  @required_fields ~w(position name description duration)
   @optional_fields ~w(asset_file_name)
 
   @doc """
@@ -22,5 +24,6 @@ defmodule Edmin.Slide do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> cast_attachments(params, [:asset_file_name], [])
   end
 end

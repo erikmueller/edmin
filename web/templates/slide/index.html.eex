@@ -1,0 +1,56 @@
+<%= for slide <- @slides do %>
+  <div class="swiper-slide slide-<%= slide.id %>">
+    <%= if is_valid_video? slide.asset do %>
+      <video>
+        <source
+          src="/videos/<%= slide.asset %>"
+          type="video/<%= get_type slide.asset %>" />
+      </video>
+    <% else %>
+      <img src="/images/<%= slide.asset %>" />
+    <% end %>
+  </div>
+<% end %>
+
+<script>
+  var isFirstImageSlide = true
+  var activeSlide = 0
+  var durations = <%= get_duration @slides %>
+  var ids = <%= get_ids @slides %>
+  var mySwiper = new Swiper ('.swiper-container', {loop: true, effect: 'fade'})
+  var players = []
+
+  ;(function repeat () {
+    if (!durations[activeSlide]) {
+      if (!players[activeSlide]) {
+        players[activeSlide] = videojs(
+          document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) video'), {}, function () {
+          this.on('ended', function () {
+            activeSlide = getNextActiveSlide()
+            repeat()
+          })
+          // this.play()
+        })
+      } else {
+        mySwiper.slideNext()
+        players[activeSlide].play()
+      }
+    } else if (isFirstImageSlide) {
+      window.setTimeout(function () {
+        mySwiper.slideNext()
+        isFirstImageSlide = false
+        repeat()
+      }, durations[activeSlide])
+    } else {
+      mySwiper.slideNext()
+      window.setTimeout(function () {
+        repeat()
+      }, durations[activeSlide])
+      activeSlide = getNextActiveSlide()
+    }
+  }());
+
+  function getNextActiveSlide() {
+    return activeSlide < durations.length -1 ? activeSlide + 1 : 0
+  }
+</script>

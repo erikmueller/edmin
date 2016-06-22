@@ -34,8 +34,8 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :edmin, Edmin.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
+  adapter: Ecto.Adapters.MySQL,
+  username: "root",
   password: "",
   database: "edmin_dev",
   hostname: "192.168.99.100",

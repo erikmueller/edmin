@@ -16,11 +16,14 @@ defmodule Edmin.Router do
 
   scope "/", Edmin do
     pipe_through :browser # Use the default browser stack
+
+    resources "/slides", SlideController, only: [:index]
   end
 
   # setup the ExAdmin routes on /admin
   scope "/admin", ExAdmin do
     pipe_through :browser
+
     admin_routes
   end
 
