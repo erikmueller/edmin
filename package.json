@@ -4,7 +4,8 @@
   "scripts": {
     "start": "mix phoenix.server",
     "test": "mix test",
-    "build": "node_modules/.bin/brunch b"
+    "build": "node_modules/.bin/brunch b",
+    "seed": "mix run priv/repo/seeds.exs"
   },
   "dependencies": {
     "babel-brunch": "~6.0.0",

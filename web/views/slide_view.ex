@@ -8,19 +8,12 @@ defmodule Edmin.SlideView do
   def get_type file_name do
     file_name
     |> Path.extname
-    |> String.slice 1, 3
+    |> String.slice(1, 3)
   end
 
   def get_duration slides do
     slides
     |> Enum.reduce([], fn (slide, acc) -> [slide.duration | acc] end)
-    |> Enum.reverse
-    |> Poison.encode!
-  end
-
-  def get_ids slides do
-    slides
-    |> Enum.reduce([], fn (slide, acc) -> [slide.id | acc] end)
     |> Enum.reverse
     |> Poison.encode!
   end

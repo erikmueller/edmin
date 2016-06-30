@@ -7,19 +7,47 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link href="//vjs.zencdn.net/5.8/video-js.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
   </head>
 
   <body>
-    <script src="//vjs.zencdn.net/5.8/video.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
-    <div class="swiper-container">
+    <div class="swiper-container" style="width:1280px; height:720px;">
       <div class="swiper-wrapper">
         <%= render @view_module, @view_template, assigns %>
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+
+    <script>
+      ;(function () {
+        const mySwiper = new Swiper('.swiper-container', {loop: true, effect: 'fade', onSlideChangeStart, onSlideChangeEnd})
+
+        function onSlideChangeStart({activeIndex, slides}) {
+          const slideContent = slides[activeIndex].children[0]
+
+          if (slideContent.tagName === 'VIDEO') {
+            slideContent.currentTime = 0;
+          }
+        }
+
+        function onSlideChangeEnd({activeIndex, slides, isEnd}) {
+          const slideContent = slides[activeIndex].children[0]
+
+          if (slideContent.tagName === 'VIDEO') {
+            slideContent.addEventListener('ended', function () {
+              mySwiper.slideNext()
+            })
+            slideContent.play()
+          } else {
+            window.setTimeout(function () {
+              mySwiper.slideNext()
+          // the first slide after the loop is counted as the last + 1 so we need to reset the index
+          }, window.__DURATIONS__[isEnd ? 0 : activeIndex - 1])
+          }
+        }
+
+      }())
+    </script>
   </body>
 </html>
