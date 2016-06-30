@@ -11,8 +11,8 @@ config :logger, level: :warn
 
 # Configure your database
 config :edmin, Edmin.Repo,
-  adapter: Ecto.Adapters.MySQL,
-  username: "root",
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
   password: "",
   database: "edmin_test",
   hostname: "192.168.99.100",

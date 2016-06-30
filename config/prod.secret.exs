@@ -8,7 +8,7 @@ config :edmin, Edmin.Endpoint,
 
 # Configure your database
 config :edmin, Edmin.Repo,
-  adapter: Ecto.Adapters.MySQL,
+  adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
