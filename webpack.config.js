@@ -1,6 +1,5 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-
 module.exports = {
   entry: './web/static/js/app.js',
   output: {
@@ -9,17 +8,15 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      {from: './web/static/css', to: './css'},
-      {from: './web/static/fonts', to: './fonts'},
-      {from: './web/static/images', to: './images'},
-      {from: './web/static/videos', to: './videos'},
+      {from: './web/static', ignore: ['ex_admin/**', 'js/**']},
+      // copy ex_admin assets flat into priv/static
       {
-        context: './web/static/vendor/',
+        context: './web/static/ex_admin/',
         from: '*.{js,js.map}',
         to: './js'
       },
       {
-        context: './web/static/vendor/',
+        context: './web/static/ex_admin/',
         from: '*.{css,css.map}',
         to: './css'
       }
