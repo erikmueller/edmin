@@ -38,5 +38,5 @@ config :edmin, Edmin.Repo,
   username: "postgres",
   password: "",
   database: "edmin_dev",
-  hostname: "192.168.99.100",
+  hostname: "localhost",
   pool_size: 10
