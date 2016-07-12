@@ -3,7 +3,12 @@ defmodule Edmin.SlideTest do
 
   alias Edmin.Slide
 
-  @valid_attrs %{description: "some desc", duration: 42, name: "some name"}
+  @valid_attrs %{
+    description: "some desc",
+    duration: 42,
+    name: "some name",
+    asset_file_name: "test.png"
+  }
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

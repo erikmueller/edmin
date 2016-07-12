@@ -1,0 +1,17 @@
+<%= for slide <- @slides do %>
+  <div class="swiper-slide">
+    <%= if slide.asset |> is_valid_video? do %>
+      <video poster="/images/test.png">
+        <source
+          src="/videos/<%= slide.asset %>"
+          type="video/<%= get_type slide.asset %>" />
+      </video>
+    <% else %>
+      <img src="/images/<%= slide.asset %>" />
+    <% end %>
+  </div>
+<% end %>
+
+<script>
+  window.__DURATIONS__ = <%= get_duration @slides %>
+</script>

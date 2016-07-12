@@ -8,12 +8,13 @@ defmodule Edmin.Slide do
     field :description, :string
     field :duration, :integer
     field :asset_file_name, :string
+    belongs_to :slidegroup, Edmin.Slidegroup
 
     timestamps
   end
 
-  @required_fields ~w(position name description duration)
-  @optional_fields ~w(asset_file_name)
+  @required_fields ~w(name description duration asset_file_name)
+  @optional_fields ~w(position)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

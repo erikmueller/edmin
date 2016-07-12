@@ -30,16 +30,18 @@ defmodule Edmin.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:ex_admin, "~> 0.7"},
-     {:postgrex, "~> 0.11.2"},
-     {:poison, "~> 2.0"},
-     {:arc_ecto, "~> 0.3"},
+    [{:arc_ecto, "~> 0.3"},
+     {:cowboy, "~> 1.0"},
+     {:credo, "~> 0.4", only: [:dev, :test]},
+     {:ex_admin, "~> 0.7"},
+     {:gettext, "~> 0.9"},
+     {:mix_test_watch, "~> 0.2", only: :dev},
      {:phoenix, "~> 1.1.4"},
      {:phoenix_ecto, "~> 2.0"},
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:poison, "~> 2.0"},
+     {:postgrex, "~> 0.11.2"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

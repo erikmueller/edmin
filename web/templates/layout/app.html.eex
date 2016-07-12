@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
   </head>
 
   <body>
@@ -17,7 +15,6 @@
       </div>
     </div>
 
-    <script src="/js/vendor-bundle.js"></script>
     <script src="/js/app-bundle.js"></script>
   </body>
 </html>

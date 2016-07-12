@@ -28,7 +28,8 @@ config :ex_admin,
   module: Edmin,
   modules: [
     Edmin.ExAdmin.Dashboard,
-    Edmin.ExAdmin.Slide
+    Edmin.ExAdmin.Slide,
+    Edmin.ExAdmin.Slidegroup
   ]
 
 # Configure phoenix generators

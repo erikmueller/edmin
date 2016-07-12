@@ -15,5 +15,5 @@ config :edmin, Edmin.Repo,
   username: "postgres",
   password: "",
   database: "edmin_test",
-  hostname: "192.168.99.100",
+  hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

@@ -3,17 +3,14 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    app: './web/static/js/app.js',
-    vendor: [
-      'swiper'
-    ]
+    app: ['./web/static/js/app.js', 'swiper']
   },
   output: {
     path: './priv/static',
-    filename: 'js/[name]-bundle.js'
+    filename: 'js/app-bundle.js'
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor-bundle.js'),
+    new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
     new CopyWebpackPlugin([
       {from: './web/static', ignore: ['ex_admin/**', 'js/**']},
       // copy ex_admin assets flat into priv/static/{js,css}
@@ -35,6 +32,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         loader: 'babel'
+      },
+      {
+        test: /\.less$/,
+        loader: "style!css!less"
       }
     ]
   }

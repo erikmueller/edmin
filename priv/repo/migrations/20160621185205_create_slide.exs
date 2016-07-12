@@ -8,6 +8,7 @@ defmodule Edmin.Repo.Migrations.CreateSlide do
       add :description, :string
       add :duration, :integer
       add :asset_file_name, :string
+      add :slidegroup_id, :integer
 
       timestamps
     end
