@@ -14,7 +14,7 @@ defmodule Edmin.Slide do
   end
 
   @required_fields ~w(name description duration asset_file_name)
-  @optional_fields ~w(position)
+  @optional_fields ~w(position slidegroup_id)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
