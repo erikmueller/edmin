@@ -1,0 +1,9 @@
+<style>
+   /*CSS Hack for jquery-ui-sortable*/
+  .box, .col-lg-12 {
+    position: inherit;
+  }
+  .ui-sortable tr {
+    height: 80px;
+  }
+</style>

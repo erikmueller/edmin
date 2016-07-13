@@ -23,7 +23,7 @@ alias Edmin.Repo
 Repo.delete_all Edmin.Slide
 Repo.delete_all Edmin.Slidegroup
 
-Repo.insert!(%Edmin.Slidegroup{
+group = Repo.insert!(%Edmin.Slidegroup{
   description: "One and only slidegroup"
 })
 
@@ -32,7 +32,7 @@ Repo.insert!(%Edmin.Slide{
   name: "image_1",
   description: "desc 1",
   duration: 4000,
-  slidegroup_id: 1,
+  slidegroup_id: group.id,
   asset_file_name: asset.("test2.jpg")
 })
 
@@ -41,7 +41,7 @@ Repo.insert!(%Edmin.Slide{
   name: "image_2",
   description: "desc 2",
   duration: 6000,
-  slidegroup_id: 1,
+  slidegroup_id: group.id,
   asset_file_name: asset.("test3.jpg")
 })
 
@@ -50,6 +50,6 @@ Repo.insert!(%Edmin.Slide{
   name: "vid_1",
   description: "desc 1",
   duration: 0,
-  slidegroup_id: 1,
+  slidegroup_id: group.id,
   asset_file_name: asset.("test2.mp4")
 })

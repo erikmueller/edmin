@@ -1,13 +1,13 @@
 <%= for slide <- @slides do %>
   <div class="swiper-slide">
-    <%= if is_valid_video? slide.asset do %>
+    <%= if is_valid_video? slide.asset.file_name do %>
       <video poster="/images/test.png">
         <source
-          src="/uploads/<%= slide.asset %>"
-          type="video/<%= get_type slide.asset %>" />
+          src="/uploads/<%= slide.asset.file_name %>"
+          type="video/<%= get_type slide.asset.file_name %>" />
       </video>
     <% else %>
-      <img src="/uploads/<%= slide.asset %>" />
+      <img src="/uploads/<%= slide.asset.file_name %>" />
     <% end %>
   </div>
 <% end %>

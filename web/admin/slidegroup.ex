@@ -17,10 +17,10 @@ defmodule Edmin.ExAdmin.Slidegroup do
         sortable_table_for(group, :slide) do
           sort_handle_column
           column "Slide", fn(s) -> a " ##{s.id}", href: "/admin/slides/#{s.id}" end
-          column :name
+          column :name, height: 50
           column :description
           column :duration
-          column "Asset", &(Helpers.asset/1)
+          column "Asset", &(Helpers.asset &1.asset_file_name)
         end
       end
     end

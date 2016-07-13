@@ -24,6 +24,8 @@ config :logger, :console,
 import_config "#{Mix.env}.exs"
 
 config :ex_admin,
+  skin_color: :purple,
+  head_template: {Edmin.AdminView, "admin_layout.html"},
   repo: Edmin.Repo,
   module: Edmin,
   modules: [
