@@ -5,11 +5,7 @@ const mySwiper = new Swiper('.swiper-container', {
   loop: true,
   effect: 'fade',
   onSlideChangeStart,
-  onSlideChangeEnd,
-  preloadImages: false,
-  lazyLoading: true,
-  lazyLoadingInPrevNext: true,
-  // lazyLoadingOnTransitionStart: true
+  onSlideChangeEnd
 })
 
 function onSlideChangeStart({activeIndex, slides}) {
