@@ -13,7 +13,7 @@ defmodule Edmin.ExAdmin.Slide do
       column :description
       column :duration
       column :slidegroup
-      column "Asset", &(Helpers.asset/1)
+      column "Asset", &(Helpers.asset &1.asset_file_name)
     end
 
     show _slide do
@@ -22,7 +22,7 @@ defmodule Edmin.ExAdmin.Slide do
         row :description
         row :duration
         row :slidegroup
-        row "Asset", &(Helpers.asset &1, 250)
+        row "Asset", &(Helpers.asset &1.asset_file_name, 250)
       end
     end
 
@@ -32,7 +32,7 @@ defmodule Edmin.ExAdmin.Slide do
         input slide, :description
         input slide, :duration
         input slide, :slidegroup, collection: Repo.all(Slidegroup)
-        input slide, :asset_file_name
+        input slide, :asset_file_name, type: :file
       end
     end
   end

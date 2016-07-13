@@ -1,10 +1,10 @@
 defmodule Edmin.Asset do
   use Arc.Definition
-
-  # Include ecto support (requires package arc_ecto installed):
   use Arc.Ecto.Definition
 
   @versions [:original]
+
+  def __storage, do: Arc.Storage.Local
 
   # To add a thumbnail version:
   # @versions [:original, :thumb]
@@ -25,9 +25,9 @@ defmodule Edmin.Asset do
   # end
 
   # Override the storage directory:
-  # def storage_dir(version, {file, scope}) do
-  #   "uploads/user/avatars/#{scope.id}"
-  # end
+  def storage_dir(version, {file, scope}) do
+    "priv/static/uploads"
+  end
 
   # Provide a default URL if there hasn't been a file uploaded
   # def default_url(version, scope) do

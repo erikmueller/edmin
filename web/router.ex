@@ -14,12 +14,6 @@ defmodule Edmin.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Edmin do
-    pipe_through :browser # Use the default browser stack
-
-    resources "/slidegroups", SlidegroupController, only: [:show]
-  end
-
   # setup the ExAdmin routes on /admin
   scope "/admin", ExAdmin do
     pipe_through :browser
@@ -27,8 +21,9 @@ defmodule Edmin.Router do
     admin_routes
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Edmin do
-  #   pipe_through :api
-  # end
+  scope "/", Edmin do
+    pipe_through :browser
+
+    resources "/slidegroups", SlidegroupController, only: [:show]
+  end
 end

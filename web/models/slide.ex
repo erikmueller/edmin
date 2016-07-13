@@ -7,7 +7,7 @@ defmodule Edmin.Slide do
     field :name, :string
     field :description, :string
     field :duration, :integer
-    field :asset_file_name, :string
+    field :asset_file_name, Edmin.Asset.Type
     belongs_to :slidegroup, Edmin.Slidegroup
 
     timestamps
@@ -25,6 +25,6 @@ defmodule Edmin.Slide do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-    |> cast_attachments(params, [:asset_file_name], [])
+    # |> cast_attachments(params, [:asset_file_name], [])
   end
 end

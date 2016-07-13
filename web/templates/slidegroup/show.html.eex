@@ -3,11 +3,11 @@
     <%= if is_valid_video? slide.asset do %>
       <video poster="/images/test.png">
         <source
-          src="/videos/<%= slide.asset %>"
+          src="/uploads/<%= slide.asset %>"
           type="video/<%= get_type slide.asset %>" />
       </video>
     <% else %>
-      <img src="/images/<%= slide.asset %>" />
+      <img src="/uploads/<%= slide.asset %>" />
     <% end %>
   </div>
 <% end %>
