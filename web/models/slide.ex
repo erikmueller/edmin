@@ -2,7 +2,7 @@ defmodule Edmin.Slide do
   use Edmin.Web, :model
   use Arc.Ecto.Model
 
-  schema "slide" do
+  schema "slides" do
     field :position, :integer
     field :name, :string
     field :description, :string

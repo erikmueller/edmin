@@ -1,7 +1,7 @@
 defmodule Edmin.Slidegroup do
   use Edmin.Web, :model
 
-  schema "slidegroup" do
+  schema "slidegroups" do
     field :description, :string
     has_many :slide, Edmin.Slide
 

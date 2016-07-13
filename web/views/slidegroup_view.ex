@@ -1,9 +1,6 @@
 defmodule Edmin.SlidegroupView do
   use Edmin.Web, :view
-
-  def is_valid_video? file_name do
-    ~w(.mp4 .webm) |> Enum.member?(Path.extname(file_name))
-  end
+  import Edmin.Utils, only: [is_valid_video?: 1]
 
   def get_type file_name do
     file_name

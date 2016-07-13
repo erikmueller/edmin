@@ -17,7 +17,7 @@ defmodule Edmin.Router do
   scope "/", Edmin do
     pipe_through :browser # Use the default browser stack
 
-    resources "/slidegroup", SlidegroupController, only: [:show]
+    resources "/slidegroups", SlidegroupController, only: [:show]
   end
 
   # setup the ExAdmin routes on /admin

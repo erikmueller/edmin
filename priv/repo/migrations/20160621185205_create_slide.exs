@@ -2,7 +2,7 @@ defmodule Edmin.Repo.Migrations.CreateSlide do
   use Ecto.Migration
 
   def change do
-    create table(:slide) do
+    create table(:slides) do
       add :position, :integer
       add :name, :string
       add :description, :string

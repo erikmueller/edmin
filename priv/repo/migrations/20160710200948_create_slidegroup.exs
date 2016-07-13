@@ -2,7 +2,7 @@ defmodule Edmin.Repo.Migrations.CreateSlidegroup do
   use Ecto.Migration
 
   def change do
-    create table(:slidegroup) do
+    create table(:slidegroups) do
       add :description, :string
 
       timestamps
